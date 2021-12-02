@@ -1,0 +1,62 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<hr>
+
+{% if tenants %}
+
+<div class="row">
+    {% include "info.html" %}
+</div>
+<br>
+<div class="row">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">APARTMENT</th>
+            <th scope="col">LEASE PERIOD</th>
+            <th scope="col">ORDER DATE</th>
+            <th scope="col">BALANCE</th>
+            <th scope="col">TENANT USERNAME</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for tenant in tenants %}
+
+        {% if tenant.tenant.client.username == request.user.username %}
+        <p class="lead">Your Tenant(s)</p>
+          <tr>
+            <th scope="row">&#10029;</th>
+
+            <td>{{tenant.tenant_property.name}}</td>
+
+            {% if tenant.lease_period > 1 %}
+            <td>{{tenant.lease_period}} years</td>
+            {% else %}
+            <td>{{tenant.lease_period}} year</td>
+            {% endif %}
+
+            <td>{{tenant.date_created}}</td>
+            <td>{{tenant.balance}}</td>
+
+
+            <td>{{tenant.tenant.username}}</td>
+
+        <td><a href="{% url 'tenants_update' tenant.id %}", class="btn btn-md">Update</a></td>
+        {% endif %}
+
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% else %}
+<p class="lead">You do not have a tenant</p>
+{% endif %}
+
+{% endblock content %}

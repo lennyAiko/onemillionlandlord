@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class="h3">Register Client</p>
+<br>
+<div class="form-group">
+<form action="" method="POST">
+    <div class="mine">
+{% csrf_token %}
+{% if form.errors %}
+{{form.errors}}
+{% endif %}
+    {{form.username}}<br>
+    {{form.first_name}}<br>
+    {{form.last_name}}<br>
+    {{form.email}}<br>
+    &nbsp;<small><strong>*Optional</strong></small>
+    <input class="form-control" type="text" placeholder="Reffered by" name="reffered" autofocus>
+    &nbsp;<small><strong>*Password should be 8 characters long and should not be similar to name.<br>
+    &nbsp;*Keep note of password.</strong></small>
+    {{form.password1}}<br>
+    &nbsp;<small><strong>*Should be same with password.</strong></small>
+    {{form.password2}}<br>
+<input type="submit" value="Register" class="btn">
+
+        </div>
+</form>
+
+</div>
+
+<style>
+    .mine{
+    width:700px;
+    margin:10px;
+    }
+</style>
+{% endblock %}

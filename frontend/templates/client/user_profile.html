@@ -1,0 +1,58 @@
+{%  extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+
+<br>
+<div class="row">
+	<div class="col-md-3">
+		<div class="card card-body">
+			<a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back to home</a>
+			<hr>
+			<h3 style="text-align: center">Account Settings</h3>
+			<hr>
+			<img class="profile-pic" src="{{request.user.client.profile_pic.url}}" alt="profile_pic">
+			<hr>
+			<a class="btn btn-info" href="{% url 'reset_password' %}"> Change password</a>
+			<p></p>
+			<em>Reffered by: {{request.user.client.reffered_by}}</em>
+
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form.as_p}}
+
+			<input class="btn btn-primary" type="submit" name="Update Information">
+			</form>
+
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="card card-body">
+			<h4 style="text-align: center;">Investment manager</h4>
+			<hr>
+			<p class="lead">Name: {{staff.first_name}} {{staff.last_name}}</p>
+			<p class="lead">Email: {{staff.email}}</p>
+			<p class="lead">Phone: {{staff.phone}}</p>
+			<hr>
+			<img class="profile-pic" src="{{staff.profile_pic.url}}" alt="profile_pic">
+
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

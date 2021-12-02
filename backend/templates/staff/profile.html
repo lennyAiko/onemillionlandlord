@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Client:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'update_client' client.id %}">Update Client</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'make_order' client.id %}">Place order</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'register_tenant' client.id %}">Register Tenant</a>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{client.email}}<br>
+			Phone: {{client.phone}}<br>
+			Registered by: {{client.registered_by}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{order_count}}</h1>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h4>Tenants</h4>
+
+				{% for tenant in tenants %}
+					<p>{{forloop.counter}}. <a style="text-decoration: none;" href="{% url 'tenant_profile' tenant.id %}"> {{tenant.username}} </a> </p>
+				{% endfor %}
+
+		</div>
+	</div>
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get" class="form-inline">
+				{{myFilter.form.balance}}
+    			{{myFilter.form.lease_period}}
+		    <button class="btn btn-primary" type="submit">Search</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Property</th>
+					<th>Location</th>
+					<th>Date Ordered</th>
+					<th>Balance</th>
+                    <th>Lease Period</th>
+				</tr>
+
+				{% for order in orders %}
+				<tr>
+					<td>{{order.property.name}}</td>
+					<td>{{order.property.location}}</td>
+					<td>{{order.date_created}}</td>
+					<td>{{order.balance}}</td>
+                    <td>{{order.lease_period}} year(s)</td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+
+
+<hr class="featurette-divider">
+
+<div class="row">
+
+{% include 'info.html' %}
+</div>
+
+<hr class="line">
+
+<div class="row">
+
+<p class="h6">You have {{count}} investment(s)</p>
+
+{% include 'table.html' %}
+
+</div>
+
+<hr class="line">
+
+<div class="row">
+    {% include 'images.html' %}
+</div>
+
+<hr>
+
+<style>
+.line{
+    margin:25px;
+}
+</style>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col col-md-4">
+        <div class="card card-body">
+            <h3>Register Tenant</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{form.as_p}}
+
+                <br>
+
+                <input type="submit" class="btn" value="Submit">
+            </form>
+    </div>
+        </div>
+    <div class="col">
+        <div class="card card-body">
+            <h3>Property details</h3>
+
+            {% if order %}
+
+                <p class="lead">Tenant has {{amount}} order(s)</p>
+
+                {% for i in order %}
+                    <p>
+                    Name: {{i.tenant_property.name}}<br>
+                    Amount paid: {{i.amount_paid}}<br>
+                    Balance: {{i.balance}}
+                    </p>
+                {% endfor %}
+
+            {% else %}
+                <p>No order found</p>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="col">
+        <div class="card card-body">
+            <h3>Tenant details</h3>
+            <p>{{tenant.order}} <br>Name: {{tenant.first_name}} {{tenant.last_name}}<br> Username: {{tenant.username}}<br> Email: {{tenant.email}}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    #phone{
+        width: 130px;
+    }
+    }
+</style>
+
+{% endblock content %}
+

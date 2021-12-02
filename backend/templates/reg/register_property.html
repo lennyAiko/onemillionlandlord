@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class="h3">Register Property</p>
+<br>
+<div class="form-group">
+<form action="" method="POST">
+    <div class="mine">
+{% csrf_token %}
+    {{form.name}}<br>
+    {{form.location}}<br>
+    {{form.amount}}<br>
+    {{form.completion_date}}<br>
+    <br>
+<input type="submit" value="Register" class="btn">
+        </div>
+</form>
+
+</div>
+
+<style>
+    .mine{
+    width:700px;
+    margin:10px;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Staff</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <br>
+    <p class="h3">Staff Registration Form</p>
+    <small>Only staffs should be registered here</small>
+    <p></p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.username}}<br>
+    {{form.first_name}}<br>
+    {{form.last_name}}<br>
+    {{form.email}}<br>
+    {{form.password1}}<br>
+    {{form.password2}}<br>
+    <input class="btn btn-success" type="submit" value="Done">
+</form>
+    </div>
+</body>
+</html>

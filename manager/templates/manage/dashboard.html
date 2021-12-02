@@ -1,0 +1,123 @@
+{% extends "mainPage.html" %}
+
+{% block content %}
+<br>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-xl-3">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4>Total staffs</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{totalStaff}}</h4>
+                </div>
+                <div class="card-footer text-muted">
+                    Registered staffs
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div class="col-lg-4 col-md-6 col-xl-3">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4>Total properties</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{totalProps}}</h4>
+                </div>
+                <div class="card-footer text-muted">
+                    Registered properties
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div class="col-lg-4 col-md-6 col-xl-3">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4>Total clients</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{totalClient}}</h4>
+                </div>
+                <div class="card-footer text-muted">
+                    Total clients registered by all staffs
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div class="col-lg-4 col-md-6 col-xl-3">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h4>Total orders</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{totalOrders}}</h4>
+                </div>
+                <div class="card-footer text-muted">
+                    Total orders of all clients
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<p></p>
+
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-xl-3">
+        <div class="card">
+            <img src="{{topStaff.profile_pic.url}}" class="card-img-top" alt="staff image" height="300">
+            <div class="card-body">
+              <hr>
+              <p class="card-text">Name: {{topStaff.first_name}} {{topStaff.last_name}}</p>
+              <p>Phone: {{topStaff.phone}}</p>
+              <p>Email: {{topStaff.email}}</p>
+              <p>With a total client(s) of: {{staffNum}}</p>
+            </div>
+            <div class="card-footer">
+              <h5 class="text-muted">Top staff</h5>
+            </div>
+          </div>
+    </div>
+    <p></p>
+    <div class="col-lg-4 col-md-6 col-xl-3">
+        <div class="card">
+            <img src="{{topClient.profile_pic.url}}" class="card-img-top" alt="client image" height="300">
+            <div class="card-body">
+              <hr>
+              <p class="card-text">Name: {{topClient.first_name}} {{topClient.last_name}}</p>
+              <p>Phone: {{topClient.phone}}</p>
+              <p>Email: {{topClient.email}}</p>
+              <p>With a total amount of: {{totalAmount}}</p>
+            </div>
+            <div class="card-footer">
+              <h5 class="text-muted">Top client</h5>
+            </div>
+          </div>
+    </div>
+    <p></p>
+    <div class="col-lg-4 col-md-6 col-xl-3">
+        <div class="card">
+            <img src="{{topProp.property_image.url}}" class="card-img-top" alt="property image" height="300">
+            <div class="card-body">
+              <hr>
+              <p class="card-text">Name: {{topProp.name}}</p>
+              <p class="card-text">Location: {{topProp.location}}</p>
+              <p class="card-text">Amount: {{topProp.amount}}</p>
+              <p>With a total order(s) of: {{countProp}} </p>
+            </div>
+            <div class="card-footer">
+              <h5 class="text-muted">Top property</h5>
+            </div>
+          </div>
+    </div>
+</div>
+
+<style>
+    p {
+        padding:2px;
+    }
+</style>
+{% endblock content %}

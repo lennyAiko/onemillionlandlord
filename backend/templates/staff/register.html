@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Sign in</title>
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+</head>
+<body class="text-center">
+	<div class="bodycontainer">
+		<div class="imgcontainer">
+		    <img src="https://onemillionlandlord.ng/wp-content/uploads/2020/05/logo.png" alt="logo" class="avatar">
+		  </div>
+		<h1 style="text-align: center;">Sign in to onemillionlandlord</h1>
+
+		<form action="" method="POST">
+			{% csrf_token %}
+		  <div class="container">
+		    <label for="uname"><strong>Username or email address</strong></label>
+		    <input type="text" placeholder="Enter Username" name="uname" required autofocus>
+		    <p></p>
+		    <label for="psw"><strong>Password</strong><strong style="float: right;">Forgot password?</strong></label>
+		    <input type="password" placeholder="Enter Password" name="psw" required>
+		    <div class="wrapper">
+		    <button type="submit">Sign in</button>
+			</div>
+		  </div>
+		</form>
+		<div class="container">
+			<p class="para">New User? Go back to site to register</p>
+		</div>
+	</div>
+</body>
+</html>

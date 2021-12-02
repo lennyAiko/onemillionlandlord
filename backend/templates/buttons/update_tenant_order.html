@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<h3>Update tenant order</h3>
+
+<div class='row'>
+    <div class='col'>
+        <h4>Update</h4>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit" class="btn btn-md">
+        </form>
+    </div>
+    <div class='col'>
+        <h4>Current</h4>
+        <p class='h5'>
+            Name of property: {{tenant_order.tenant_property.name}}<br>
+            <br>
+            Amount paid: {{tenant_order.amount_paid}}<br>
+            <br>
+            Lease period: {{tenant_order.lease_period}}<br>
+            <br>
+            Date Created: {{tenant_order.date_created}}
+            <br>
+            Completion: {{tenant_order.date}}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class="h3">Edit Order</p>
+
+<p class="h6">Filter the list of orders</p>
+<form method="get" class="form-inline">
+    {{myFilter.form.balance}}
+    {{myFilter.form.lease_period}}
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+<br>
+
+<div class="table-responsive">
+<table class="table">
+<tr>
+    <th>Username</th>
+    <th>Name of property</th>
+    <th>Amount</th>
+    <th>Balance</th>
+    <th>Lease Period</th>
+</tr>
+{% for order in page_obj %}
+
+{% if client.staff.user == request.user %}
+
+<tr>
+    <td>{{order.client.username}}</td>
+    <td>{{order.property.name}}</td>
+    <td>{{order.property.amount}}</td>
+    <td>{{order.balance}}</td>
+    <td>{{order.lease_period}}</td>
+    <td><a class="btn" href="{% url 'update_order' order.id %}">Update</a></td>
+    <td><a class="btn" href="{% url 'delete_order' order.id %}">Delete</a></td>
+</tr>
+
+{% endif %}
+{% endfor %}
+</table>
+{% include 'paginator.html' %}
+</div>
+{% endblock %}

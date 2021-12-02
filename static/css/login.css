@@ -1,0 +1,111 @@
+body {
+	background: #fafafa;
+	font-family: Franklin Gothic, Helvetica, sans-serif;
+}
+
+form {border: 3px solid #f1f1f1; border-radius: 5px;}
+
+.para {
+	border: 3px solid #f1f1f1;
+	border-radius: 5px;
+	padding: 9px;
+	text-align: center;
+	font-weight: bold;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.wrapper {
+	text-align: center;
+}
+
+
+button {
+  background-color: #5b1a73;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  margin: 5px 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 30%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: auto;
+}
+
+img.avatar {
+  width: 15%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.bodycontainer {
+	padding: 10px;
+  	width: 370px;
+  	margin: auto;
+  	margin-top: 50px;
+}
+
+.mycontainer {
+    padding: 7px;
+  	width: 40%;
+  	margin: auto;
+  	margin-top: 50px;
+  	align:center;
+}
+
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 600px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+/* For very small phones */
+  @media only screen and (max-width: 600px) {
+    .bodycontainer{ width: 330px; }
+  }
+  /* For small tablets and phones */
+   @media only screen and (min-width: 600px) {
+    .bodycontainer{ width: 380px; }
+  }
+  /* For medium size */
+   @media only screen and (min-width: 768px) {
+    .bodycontainer{ width: 450px; }
+  }
+  /* For laptops */
+   @media only screen and (min-width: 992px) {
+    .bodycontainer{ width: 530px; }
+  }
+  /* For large laptops */
+   @media only screen and (min-width: 1200px) {
+    .bodycontainer{ width: 630px; }
+  }
+
+
+

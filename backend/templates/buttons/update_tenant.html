@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<h3>Update tenant info</h3>
+
+<div class="row">
+    <div class="col">
+        <h4>Update</h4>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit" class='btn btn-md'>
+        </form>
+    </div>
+    <div class="col">
+        <h4>Current</h4>
+        <p class='h5'>
+            First Name: {{tenant.first_name}} <br>
+            <br>
+            Last Name: {{tenant.last_name}} <br>
+            <br>
+            Email: {{tenant.email}} <br>
+            <br>
+            Phone No.: {{tenant.phone}} <br>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<hr class="featurette-divider">
+
+<div class="row">
+
+{% include 'info.html' %}
+
+</div>
+
+<br>
+
+<div class="row">
+
+{% include 'table.html' %}
+
+</div>
+
+<hr class="line">
+
+<div class="row">
+
+<p class="h3">PAYMENT HISTORY</p>
+
+<div class="container">
+
+{% for order in orders %}
+
+<p class="h4">{{order.property.name}}</p>
+
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <td>Property price</td>
+      <td>{{order.property.amount}} naira</td>
+    </tr>
+    <tr>
+      <td>Amount paid</td>
+      <td>{{order.amount_paid}} naira</td>
+    </tr>
+    <tr>
+      <td>Balance</td>
+      <td>{{order.balance}} naira</td>
+    </tr>
+    <tr>
+      <td>Payment made on</td>
+      <td>{{order.updated_on}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+
+
+<style>
+.line{
+    margin:25px;
+}
+.h4 {
+    color:#5b1a73;
+}
+</style>
+
+{% endblock %}

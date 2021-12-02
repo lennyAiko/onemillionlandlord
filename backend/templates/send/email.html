@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="meeehn">
+    <p class="h4">Send mail to client</p>
+<form action="" method="post">
+{% csrf_token %}
+{{form.email}}<br>
+    {{form.subject}}<br>
+    {{form.message}}<br>
+    <input class="btn btn-send" type="submit" value="Send">
+
+    </form>
+    </div>
+
+<style>
+    #meeehn {
+    width:700px;
+    }
+</style>
+{% endblock %}

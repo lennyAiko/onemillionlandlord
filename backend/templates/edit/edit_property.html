@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class="h3">Edit Property</p>
+
+<p class="h6">Filter the list of properties</p>
+<form method="get" class="form-inline">
+    {{myFilter.form.name}}
+    {{myFilter.form.location}}
+    {{myFilter.form.amount}}
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+<br>
+
+<div class="table-responsive">
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Amount</th>
+</tr>
+{% for property in page_obj %}
+<tr>
+    <td>{{property.name}}</td>
+    <td>{{property.location}}</td>
+    <td>{{property.amount}}</td>
+    <td><a class="btn" href="{% url 'update_property' property.id %}">Update</a></td>
+    <td><a class="btn" href="{% url 'delete_property' property.id %}">Delete</a></td>
+</tr>
+{% endfor %}
+</table>
+{% include 'paginator.html' %}
+</div>
+{% endblock %}

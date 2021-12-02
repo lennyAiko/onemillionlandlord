@@ -1,0 +1,30 @@
+<div class="container">
+{% for order in orders %}
+    <p class="h4">Property: {{order.property.name}}</p>
+    <p class="h5">Location: {{order.property.location}}</p>
+    {% if order.balance == 0.0 %}
+        <p>Status: Payment completed</p>
+    {% else %}
+        <p>Status: Payment not complete</p>
+    {% endif %}
+    <p></p>
+
+    {% if date == order.property.completion_date %}
+        <p>Property is now completed</p>
+    {% else %}
+        <p>Completion date: <strong>{{order.property.completion_date|date:"D., M., Y"}}</strong></p>
+    {% endif %}
+
+    <p></p>
+    <p></p>
+    <hr>
+{% endfor %}
+    </div>
+<style>
+  .image-grid-container {
+            display: inline;
+        }
+        .meeee{
+        width:33%;
+        }
+</style>

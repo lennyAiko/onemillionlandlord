@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">INVESTMENT</th>
+      <th scope="col">LEASE PERIOD</th>
+      <th scope="col">ORDER DATE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order in orders %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{order.property.name}}</td>
+
+      {% if order.lease_period > 1 %}
+        <td>{{order.lease_period}} years</td>
+      {% else %}
+        <td>{{order.lease_period}} year</td>
+      {% endif %}
+
+      <td>{{order.date_created}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

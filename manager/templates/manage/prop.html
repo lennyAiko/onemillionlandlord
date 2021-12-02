@@ -1,0 +1,34 @@
+{% extends "mainPage.html" %}
+
+{% block content %}
+<br>
+<div class="row">
+{% if props %}
+    {% for prop in props %}
+
+        <div class="col-lg-4 col-md-6 col-xl-3">
+            <div class="card">
+                <img src="{{prop.property_image.url}}" class="card-img-top" alt="prop image" height="300">
+
+                <div class="card-body">
+                    <hr>
+                    <p class="card-text">Name: {{prop.name}}</p>
+                    <p>Amount: {{prop.amount}}</p>
+                    <p>Location: {{prop.location}}</p>
+                    <p>Registered by: {{prop.registered_by}}</p>
+                </div>
+            </div>
+        </div>
+        <p></p>
+
+    {% endfor %}
+{% endif %}
+</div>
+
+<style>
+    p {
+        padding:2px;
+    }
+</style>
+
+{% endblock content %}
